@@ -5,6 +5,34 @@ import MenuItem from './components/MenuItem';
 
 // Menu data. An array of objects where each object represents a menu item. Each menu item has an id, title, description, image name, and price.
 // You can use the image name to get the image from the images folder.
+const myMenuItems = [
+  {
+    id: 1, 
+    title: 'sandwich',
+    imageName: 'sandwitch-370x370.jpg',
+    price: 18.00,
+  },
+  {
+    id: 2, 
+    title: 'salad',
+    imageName: 'Mediterranean-Salad-370x370.jpg',
+    price: 15.00,
+  },
+  {
+    id: 3,
+    title: 'humbargar',
+    imageName: 'humbargar-370x370.jpg',
+    price: 25.00,
+  },
+  {
+    id: 4,
+    title: 'tacos',
+    imageName: 'Taco-Plate-370x370.jpg',
+    price: 14.00,
+  }
+]
+
+
 const menuItems = [
   {
     id: 1,
