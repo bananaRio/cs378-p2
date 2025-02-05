@@ -1,5 +1,7 @@
 import './App.css';
 import MenuItem from './components/MenuItem';
+import Ocumpus_image from './components/Ocumpus_image';
+import myMenuItem from './components/myMenuItem';
 
 // import 'bootstrap/dist/css/bootstrap.min.css'; // This imports bootstrap css styles. You can use bootstrap or your own classes by using the className attribute in your elements.
 
@@ -29,6 +31,11 @@ const myMenuItems = [
     title: 'tacos',
     imageName: 'Taco-Plate-370x370.jpg',
     price: 14.00,
+  },
+  {
+    id: 5,
+    title: 'ocampus_logo',
+    imageName: 'ocampuscafeLogo.png',
   }
 ]
 
@@ -107,15 +114,19 @@ const menuItems = [
 ];
 
 
+
 function App() {
   return (
     <div>
-      <h1>Menu</h1>
-      <div className="menu">
-        {/* Display menu items dynamicaly here by iterating over the provided menuItems */}
-        <MenuItem title={menuItems[0].title} /> {/* Example for how to use a component */}
-      </div>
+        <Ocumpus_image imageName = {myMenuItems[4].imageName}/>
     </div>
+    // <div>
+    //   <h1>Menu</h1>
+    //   <div className="menu">
+    //     {/* Display menu items dynamicaly here by iterating over the provided menuItems */}
+    //     <MenuItem title={menuItems[0].title} /> {/* Example for how to use a component */}
+    //   </div>
+    // </div>
   );
 }
 

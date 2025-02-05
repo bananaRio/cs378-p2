@@ -6,3 +6,11 @@
 .menu {
   color: blue;
 }
+
+.ocampus_image_title {
+  width: 80%;
+  height: 10%;
+  padding: 3%;
+  padding-left: 8%;
+  align-items: center;
+}
