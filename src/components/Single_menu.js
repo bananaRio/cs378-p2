@@ -5,7 +5,7 @@ const Single_menu = ({item}) => {
   return (
     <div className = "single_menu_padding row">
       <div className = "col-4">
-        <img className = "menu_image" src={`/images/${imageName}`}/>
+        <img className = "menu_image" src={`${process.env.PUBLIC_URL}/images/${imageName}`}/>
       </div>
       <div className = "col-8 ps-0">
         <div className = "padding_bottom_1 row">
