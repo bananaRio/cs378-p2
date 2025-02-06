@@ -65,7 +65,7 @@
 }
 
 .menu_description {
-  font-size: 0.7em;
+  font-size: 0.8em;
 }
 
 .button {
@@ -89,5 +89,13 @@
 }
 
 .padding_bottom {
-  padding-bottom: 2%;
+  padding-bottom: 5%;
+}
+
+.padding_bottom_1 {
+  padding-bottom: 1%;
+}
+
+.single_menu_padding {
+  padding-right: 3%;
 }

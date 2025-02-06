@@ -12,37 +12,39 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 // You can use the image name to get the image from the images folder.
 const myMenuItems = [
   {
-    id: 1, 
-    title: 'Cuban Hot Sandwich',
-    imageName: 'sandwitch-370x370.jpg',
-    description: 'oven-roasted turkey, Black Forest ham, veggies and mayo',
-    price: '12.00',
-  },
-  {
-    id: 2, 
-    title: 'Mediterranean Sald',
-    imageName: 'Mediterranean-Salad-370x370.jpg',
-    description: 'mozzarella cheese, and garlic together in a bowl',
-    price: '40.00',
-  },
-  {
-    id: 3,
-    title: 'Classic Hamburger',
-    imageName: 'humbargar-370x370.jpg',
-    description: 'Ground beef, french fries, tomato chutney',
-    price: '25.00',
-  },
-  {
-    id: 4,
+    id: 1,
     title: 'Pork Tacos',
     imageName: 'Taco-Plate-370x370.jpg',
     description: '2 crispy corn tostadas, served with jalapeno, onion, chilantro',
     price: '18.00',
   },
   {
+    id: 2,
+    title: 'Classic Hamburger',
+    imageName: 'humbargar-370x370.jpg',
+    description: 'Ground beef, french fries, tomato chutney',
+    price: '25.00',
+  },
+  {
+    id: 3, 
+    title: 'Cuban Hot Sandwich',
+    imageName: 'sandwitch-370x370.jpg',
+    description: 'oven-roasted turkey, Black Forest ham, veggies and mayo',
+    price: '12.00',
+  },
+  {
+    id: 4, 
+    title: 'Mediterranean Sald',
+    imageName: 'Mediterranean-Salad-370x370.jpg',
+    description: 'mozzarella cheese, and garlic together in a bowl',
+    price: '40.00',
+  },
+  {
     id: 5,
     title: 'ocampus_logo',
     imageName: 'ocampuscafeLogo.png',
+    description: '',
+    price: '',
   }
 ]
 
@@ -123,6 +125,18 @@ const menuItems = [
 
 
 function App() {
+  const menuItem_components = [];
+  for (let i = 0; i < 4; i++) {
+    menuItem_components.push(
+      <div>
+        <div key={i} className = "menu_item_setting">
+          <Single_menu item={myMenuItems[i]}/>
+        </div>
+        <div className='padding_bottom'>
+        </div>
+      </div>
+    );
+  }
   return (
     <div>
       <div>
@@ -136,9 +150,10 @@ function App() {
       </div>
       <div className='padding_bottom_large'>
       </div>
-      <div className = "menu_item_setting">
+      {menuItem_components}
+      {/* <div className = "menu_item_setting">
         <Single_menu item = {myMenuItems[0]} />
-      </div>
+      </div> */}
     </div>
     
     // <div>
