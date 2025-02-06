@@ -2,7 +2,10 @@ import './App.css';
 import MenuItem from './components/MenuItem';
 import Ocumpus_image from './components/Ocumpus_image';
 import myMenuItem from './components/myMenuItem';
-
+import TitleSentence_small from './components/TitleSentence_small';
+import TitleSentence_large from './components/TitleSentence_large';
+import Single_menu from './components/Single_menu';
+import 'bootstrap/dist/css/bootstrap.min.css';
 // import 'bootstrap/dist/css/bootstrap.min.css'; // This imports bootstrap css styles. You can use bootstrap or your own classes by using the className attribute in your elements.
 
 // Menu data. An array of objects where each object represents a menu item. Each menu item has an id, title, description, image name, and price.
@@ -10,27 +13,31 @@ import myMenuItem from './components/myMenuItem';
 const myMenuItems = [
   {
     id: 1, 
-    title: 'sandwich',
+    title: 'Cuban Hot Sandwich',
     imageName: 'sandwitch-370x370.jpg',
-    price: 18.00,
+    description: 'oven-roasted turkey, Black Forest ham, veggies and mayo',
+    price: '12.00',
   },
   {
     id: 2, 
-    title: 'salad',
+    title: 'Mediterranean Sald',
     imageName: 'Mediterranean-Salad-370x370.jpg',
-    price: 15.00,
+    description: 'mozzarella cheese, and garlic together in a bowl',
+    price: '40.00',
   },
   {
     id: 3,
-    title: 'humbargar',
+    title: 'Classic Hamburger',
     imageName: 'humbargar-370x370.jpg',
-    price: 25.00,
+    description: 'Ground beef, french fries, tomato chutney',
+    price: '25.00',
   },
   {
     id: 4,
-    title: 'tacos',
+    title: 'Pork Tacos',
     imageName: 'Taco-Plate-370x370.jpg',
-    price: 14.00,
+    description: '2 crispy corn tostadas, served with jalapeno, onion, chilantro',
+    price: '18.00',
   },
   {
     id: 5,
@@ -118,8 +125,22 @@ const menuItems = [
 function App() {
   return (
     <div>
+      <div>
         <Ocumpus_image imageName = {myMenuItems[4].imageName}/>
+      </div>
+      <div className='padding_between'>
+        <TitleSentence_small />
+      </div>
+      <div> 
+        <TitleSentence_large />
+      </div>
+      <div className='padding_bottom_large'>
+      </div>
+      <div className = "menu_item_setting">
+        <Single_menu item = {myMenuItems[0]} />
+      </div>
     </div>
+    
     // <div>
     //   <h1>Menu</h1>
     //   <div className="menu">
