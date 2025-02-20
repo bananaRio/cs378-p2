@@ -5,7 +5,9 @@ import myMenuItem from './components/myMenuItem';
 import TitleSentence_small from './components/TitleSentence_small';
 import TitleSentence_large from './components/TitleSentence_large';
 import Single_menu from './components/Single_menu';
+import Show_total_price from './components/Show_total_price';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import React, { useState } from 'react';
 // import 'bootstrap/dist/css/bootstrap.min.css'; // This imports bootstrap css styles. You can use bootstrap or your own classes by using the className attribute in your elements.
 
 // Menu data. An array of objects where each object represents a menu item. Each menu item has an id, title, description, image name, and price.
@@ -126,21 +128,38 @@ const menuItems = [
 
 function App() {
   const menuItem_components = [];
+  const [items, set_items] = useState(menuItems);
+  const [counts, set_counts] = useState([0,0,0,0]);
   for (let i = 0; i < 4; i++) {
     menuItem_components.push(
-      <div>
-        <div key={i} className = "menu_item_setting">
-          <Single_menu item={menuItems[i]}/>
+      <div key={i}>
+        <div className = "menu_item_setting">
+          <Single_menu item={items[i]} count={counts[i]}
+                        set_count = {(new_count) => {
+                          const new_counts = [...counts];
+                          new_counts[i] = new_count;
+                          set_counts(new_counts);
+                        }}/>
         </div>
         <div className='padding_bottom'>
         </div>
       </div>
     );
   }
+  const calculate_total = () => {
+    let total = 0;
+    for (let i = 0; i < 4; i++) {
+      total += parseFloat(items[i].price) * counts[i];
+    }
+    return total;
+  };
+  function reset_price() {
+    set_counts([0,0,0,0])
+  };
   return (
     <div>
       <div>
-        <Ocumpus_image imageName = {menuItems[4].imageName}/>
+        <Ocumpus_image imageName = {items[4].imageName}/>
       </div>
       <div className='padding_between'>
         <TitleSentence_small />
@@ -151,9 +170,10 @@ function App() {
       <div className='padding_bottom_large'>
       </div>
       {menuItem_components}
-      {/* <div className = "menu_item_setting">
-        <Single_menu item = {menuItems[0]} />
-      </div> */}
+      <div>
+        <Show_total_price total_price={calculate_total()}
+                          reset_price={reset_price} />
+      </div>
     </div>
     
     // <div>

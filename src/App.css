@@ -47,7 +47,7 @@
 }
 
 .padding_bottom_large {
-  margin-bottom: 20%;
+  margin-bottom: 13%;
 }
 
 .menu_image {
@@ -98,4 +98,57 @@
 
 .single_menu_padding {
   padding-right: 3%;
+}
+
+/* .minus_button {
+  height: 25px;
+  width: 25px;
+  background-color: white;
+} */
+
+.updated_button_minus {
+  padding-top: 2%;
+  padding-right: 0%;
+}
+
+.updated_button_plus{
+  padding-top: 2%;
+  padding-left: 0%;
+}
+.show_menu_item_num {
+  padding-top: 1%;
+  margin-right: 3.5%;
+}
+
+.total_setting {
+  text-align: center;
+  font-size: 0.76em;
+  margin-bottom: 7%;
+}
+
+.subtotal_setting {
+  text-align: left;
+  margin-left: 10%;
+}
+
+.left_button {
+  width: 50%;
+  height: 50%;
+  border: 0;
+  border-radius: 20px;
+  box-sizing: border-box;
+  background-color: rgb(222, 219, 219);
+  color: black;
+  text-align: center;
+}
+
+.button_for_total {
+  width: 50%;
+  height: 50%;
+  border: 0;
+  border-radius: 20px;
+  box-sizing: border-box;
+  background-color: rgb(222, 219, 219);
+  color: black;
+  text-align: center;
 }
