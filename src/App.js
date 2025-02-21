@@ -4,8 +4,8 @@ import Ocumpus_image from './components/Ocumpus_image';
 import myMenuItem from './components/myMenuItem';
 import TitleSentence_small from './components/TitleSentence_small';
 import TitleSentence_large from './components/TitleSentence_large';
-import Single_menu from './components/Single_menu';
 import Show_total_price from './components/Show_total_price';
+import Single_menu from './components/Single_menu';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React, { useState } from 'react';
 // import 'bootstrap/dist/css/bootstrap.min.css'; // This imports bootstrap css styles. You can use bootstrap or your own classes by using the className attribute in your elements.
@@ -130,6 +130,8 @@ function App() {
   const menuItem_components = [];
   const [items, set_items] = useState(menuItems);
   const [counts, set_counts] = useState([0,0,0,0]);
+  const [show_popup, set_show_popup] = useState(false);
+  const [popup_message, set_popup_message] = useState("");
   for (let i = 0; i < 4; i++) {
     menuItem_components.push(
       <div key={i}>
@@ -156,6 +158,23 @@ function App() {
   function reset_price() {
     set_counts([0,0,0,0])
   };
+  function pop_up_order() {
+    const total_items = counts.reduce((acc, curr) => acc + curr, 0);
+    if (total_items === 0) {
+      set_popup_message("No items in cart");
+    }
+    else {
+      let message = "Order placed!\n\n";
+      for (let i = 0; i < 4; i++) {
+        if (counts[i] > 0) {
+          message += `${items[i].title}: ${counts[i]}\n`;
+        }
+        set_popup_message(message);
+      }
+
+      set_show_popup(true);
+    }
+  };
   return (
     <div>
       <div>
@@ -172,17 +191,28 @@ function App() {
       {menuItem_components}
       <div>
         <Show_total_price total_price={calculate_total()}
-                          reset_price={reset_price} />
+                          reset_price={reset_price} 
+                          pop_up_order = {pop_up_order}/>
       </div>
+      {show_popup && 
+        (
+          <div style={{
+            position: 'fixed', top: 0, left: 0, right: 0, bottom: 0,
+            display: 'flex', alignItems: 'center', justifyContent: 'center'
+          }}> 
+            <div style = {{backgroundColor: 'white', borderRadius: '5px', 
+                          padding: '20px', textAlign: 'center',
+                          border: '2px solid #000', width: '80%', minHeight: '100px'}}>
+              <p style={{ whiteSpace: 'pre-wrap' }}>{popup_message}</p>
+              <button onClick={() => {set_show_popup(false); reset_price();}}>
+                OK
+              </button>
+            </div>
+          </div>
+
+        )}
     </div>
     
-    // <div>
-    //   <h1>Menu</h1>
-    //   <div className="menu">
-    //     {/* Display menu items dynamicaly here by iterating over the provided menuItems */}
-    //     <MenuItem title={menuItems[0].title} /> {/* Example for how to use a component */}
-    //   </div>
-    // </div>
   );
 }
 
